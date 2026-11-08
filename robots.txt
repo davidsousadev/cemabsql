@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davidsousadev.github.io/cemabjs/sitemap.xml

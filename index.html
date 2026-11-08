@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
+
+    <title>CEMAB SQL - Editor SQL Online e Playground</title>
+    <meta name="description"
+        content="CEMAB SQL é um playground SQL online para escrever, executar e testar comandos SQL (SQLite) direto no navegador. Editor com syntax highlighting, terminal interativo e salvamento de arquivos .sql.">
+    <meta name="keywords"
+        content="sql, editor sql online, playground sql, sqlite no navegador, cemab sql, code editor, terminal sql, create table, crud">
+    <meta name="author" content="David Sousa">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="canonical" href="https://davidsousadev.github.io/cemabsql/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="CEMAB SQL - Editor SQL Online">
+    <meta property="og:description"
+        content="Escreva, execute e teste comandos SQL diretamente no navegador com syntax highlighting e terminal interativo.">
+    <meta property="og:url" content="https://davidsousadev.github.io/cemabsql/">
+    <meta property="og:site_name" content="CEMAB SQL">
+    <meta property="og:image" content="https://davidsousadev.github.io/cemabsql/assets/img/icon.jpeg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CEMAB SQL - Editor SQL Online">
+    <meta name="twitter:description" content="Escreva, execute e teste comandos SQL diretamente no navegador.">
+    <meta name="twitter:image" content="https://davidsousadev.github.io/cemabsql/assets/img/icon.jpeg">
+
+    <!-- Favicon / PWA -->
+    <link rel="icon" type="image/jpeg" href="assets/img/icon.jpeg">
+    <link rel="apple-touch-icon" href="assets/img/icon.jpeg">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CEMAB SQL",
+      "url": "https://davidsousadev.github.io/cemabsql/",
+      "description": "Editor SQL online para escrever, executar e testar comandos SQL (SQLite) no navegador.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Person",
+        "name": "David Sousa",
+        "url": "https://github.com/davidsousadev"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <img src="assets/img/icon.jpeg" width="32" height="32" alt="Logo CEMAB SQL">
+        <span class="brand">CEMAB - SQL</span>
+    </header>
+
+    <main id="main">
+        <section aria-labelledby="editor-title">
+            <h1 id="editor-title" class="sr-only">Editor SQL Online</h1>
+
+            <div class="editor-wrapper">
+                <textarea id="editor" aria-label="Editor de código SQL"></textarea>
+            </div>
+
+            <div class="toolbar" role="toolbar" aria-label="Ações do editor">
+                <button type="button" onclick="executar()">▶ Executar SQL</button>
+                <button type="button" onclick="limpar()">🧹 Limpar Terminal</button>
+                <button type="button" onclick="resetar()">🗑️ Resetar BD</button>
+                <button type="button" onclick="salvar()">💾 Salvar (.sql)</button>
+            </div>
+
+            <div class="terminal" id="saida" role="log" aria-live="polite" aria-label="Saída do terminal"></div>
+
+            <input id="fakeInput" type="text" aria-hidden="true" tabindex="-1"
+                style="opacity:0; position:absolute; left:-9999px;">
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        Banco temporário em memória (sessão). Os dados são apagados ao recarregar/encerrar a sessão. Criado com ❤️ por
+        <a href="https://github.com/davidsousadev" target="_blank" rel="noopener noreferrer">David Sousa</a>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>

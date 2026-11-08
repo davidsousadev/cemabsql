@@ -1,0 +1,21 @@
+{
+  "name": "CEMAB SQL",
+  "short_name": "CEMAB SQL",
+  "description": "Editor JavaScript online para escrever, executar e testar código JS no navegador.",
+  "start_url": "/cemabjs/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "assets/img/icon.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/img/icon.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
