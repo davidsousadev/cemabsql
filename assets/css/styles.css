@@ -1,0 +1,87 @@
+:root {
+  --bg: #0f172a;
+  --surface: #111827;
+  --border: #1f2937;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --terminal-bg: #000;
+  --terminal-text: #22c55e;
+  --cursor: #22c55e;
+  --font-mono: "Fira Code", "JetBrains Mono", "Consolas", monospace;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --touch: 44px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.5; overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff; padding: 8px 12px; z-index: 100; border-radius: 0 0 6px 0; }
+.skip-link:focus { left: 0; }
+
+.site-header { display: flex; align-items: center; gap: 12px; padding: 12px 16px; padding-top: calc(12px + env(safe-area-inset-top)); border-bottom: 1px solid var(--border); font-weight: 600; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+.site-header img { border-radius: 6px; }
+.site-header .brand { font-size: 1rem; letter-spacing: 0.5px; }
+
+main { max-width: 960px; margin: 0 auto; padding: 16px 12px 24px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+
+h1 { font-size: 1.25rem; margin: 0 0 12px; }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; position: sticky; top: 56px; z-index: 9; background: var(--bg); padding: 8px 0; }
+
+button { background: var(--accent); color: #fff; border: none; min-height: var(--touch); min-width: var(--touch); padding: 10px 14px; border-radius: 10px; cursor: pointer; font-size: 1rem; font-weight: 500; transition: background 0.15s ease, transform 0.05s ease; flex: 1 1 auto; }
+button:hover { background: var(--accent-hover); }
+button:active { transform: scale(0.97); }
+button:focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; }
+
+.editor-wrapper { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+
+.CodeMirror { height: 45vh; min-height: 220px; max-height: 60vh; font-family: var(--font-mono); font-size: 14px; background: #000 !important; color: #00ff9c !important; }
+
+.terminal { background: var(--terminal-bg); color: var(--terminal-text); padding: 12px; min-height: 180px; max-height: 40vh; overflow: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; margin-top: 12px; font-family: var(--font-mono); font-size: 14px; white-space: pre-wrap; word-break: break-word; border: 1px solid var(--border); }
+
+.cursor { display: inline-block; width: 8px; height: 1em; background: var(--cursor); margin-left: 2px; animation: blink 1s steps(2) infinite; vertical-align: text-bottom; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.site-footer { text-align: center; padding: 16px 12px; padding-bottom: calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* iOS zoom prevention: inputs >= 16px */
+input, textarea, select { font-size: 16px; }
+
+/* Mobile-first adjustments */
+@media (max-width: 640px) {
+  .CodeMirror { height: 40vh; min-height: 200px; }
+  main { padding: 12px 10px 20px; }
+  .site-header { padding: 10px 12px; }
+  .toolbar { top: 52px; }
+  button { font-size: 0.95rem; padding: 10px 12px; }
+}
+
+/* Tablet / desktop */
+@media (min-width: 641px) {
+  .CodeMirror { height: 360px; }
+  .terminal { max-height: 400px; }
+  .toolbar { position: static; background: transparent; padding: 0; }
+  button { flex: 0 0 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; }
+  button { transition: none; }
+}
+
+/* Landscape mobile: compact */
+@media (max-height: 500px) and (orientation: landscape) {
+  .CodeMirror { height: 55vh; min-height: 160px; }
+  .terminal { max-height: 30vh; min-height: 120px; }
+}
