@@ -18,6 +18,8 @@ Editor SQL online (playground) que permite escrever, executar e testar comandos 
 ```
 .
 ├── index.html              # Página principal
+├── sql/                    # Pasta com editor e terminal SQL
+│   └── index.html
 ├── assets/
 │   ├── css/styles.css      # Estilos
 │   ├── js/app.js           # Lógica da aplicação (sql.js)

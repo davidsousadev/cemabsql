@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://davidsousadev.github.io/cemabsql/sitemap.xml
+Sitemap: https://davidsousadev.github.io/cemabjs/sitemap.xml
