@@ -1,8 +1,8 @@
 {
   "name": "CEMAB SQL",
   "short_name": "CEMAB SQL",
-  "description": "Editor JavaScript online para escrever, executar e testar código JS no navegador.",
-  "start_url": "/cemabjs/",
+  "description": "Editor SQL online para escrever, executar e testar comandos SQL (SQLite) no navegador.",
+  "start_url": "/cemabsql/",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
